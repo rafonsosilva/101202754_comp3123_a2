@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment, Component } from "react";
+import { CssBaseline, withStyles } from "@material-ui/core";
+import WeatherForecast from './pages/main/WeatherForecast'
+import AppHeader from "./components/appHeader";
+
+const styles = (theme) => ({
+  main: {
+    padding: theme.spacing(3),
+    [theme.breakpoints.down("xs")]: {
+      padding: theme.spacing(2),
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment >
+      <AppHeader />
+      <WeatherForecast />
+    </Fragment>
   );
 }
 
