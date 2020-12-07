@@ -7,9 +7,12 @@
   #weatherList td, #customers th {
     border: 1px solid #ddd;
     padding: 8px;
+    text-align: center;
   }
   
-  #weatherList tr:nth-child(even){background-color: #f2f2f2;}
+  #weatherList tr:nth-child(even){
+    background-color: #f2f2f2;
+  }
   
   #weatherList tr:hover {background-color: #ddd;}
   
@@ -18,7 +21,7 @@
     top: 0;
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: center;
+    
     background-color: #4CAF50;
     color: white;
   }

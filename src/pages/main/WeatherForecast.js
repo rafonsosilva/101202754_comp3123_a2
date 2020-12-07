@@ -5,6 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import "./WeatherForecast.css";
 
+const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
+
 export default class WeatherForecast extends Component {
   //Define state default values
   state = {
@@ -15,8 +17,7 @@ export default class WeatherForecast extends Component {
   componentDidMount() {
     axios
       .get(
-        "https://api.openweathermap.org/data/2.5/forecast?q=Toronto,ca&units=metric&appid=5ebd45104e8587a7ead9aca2823f7b96"
-      )
+        "https://api.openweathermap.org/data/2.5/forecast?q=Toronto,ca&units=metric&appid="+API_KEY)
       .then((res) => {
         const forecastList = res.data.list;
         const location = res.data.city;
@@ -58,12 +59,12 @@ export default class WeatherForecast extends Component {
                   <td>
                     <img
                       src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
-                      width="30px"
+                      width="40px"
                     />
                   </td>
-                  <td>{item.main.temp_min}</td>
-                  <td>{item.main.temp_max}</td>
-                  <td>{item.main.feels_like}</td>
+                  <td>{Math.round(item.main.temp_min)}</td>
+                  <td>{Math.round(item.main.temp_max)}</td>
+                  <td>{Math.round(item.main.feels_like)}</td>
                 </tr>
               ))}
             </tbody>
